@@ -1,0 +1,5 @@
+r1 1 2 q='abc'
+;
+H_R(r1), WS( ), NODE(1), WS( ), NODE(2), WS( ), KV_KEY(q), EQ(=), EXPR('abc')
+;
+(circuit (line (r_entry r1 1 2 (kv_entry (kvpair q = 'abc')))) eol)

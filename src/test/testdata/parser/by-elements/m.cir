@@ -1,0 +1,5 @@
+M31 2 17 6 10 MOSN L=5U W=2U
+;
+H_M(M31), WS( ), NODE(2), WS( ), NODE(17), WS( ), NODE(6), WS( ), NODE(10), WS( ), MODEL_NAME(MOSN), WS( ), KV_KEY(L), EQ(=), VAL(5U), WS( ), KV_KEY(W), EQ(=), VAL(2U)
+;
+(circuit (line (m_entry M31 2 17 6 10 MOSN (kv_entry (kvpair L = 5U)) (kv_entry (kvpair W = 2U)))) eol)

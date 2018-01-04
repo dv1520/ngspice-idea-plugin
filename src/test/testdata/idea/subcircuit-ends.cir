@@ -1,0 +1,4 @@
+head
+.subckt aba
+    q11 1 2 3 a19
+.ends <caret>

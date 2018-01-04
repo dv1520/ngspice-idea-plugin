@@ -1,0 +1,5 @@
+Z1 7 2 3 ZM1 OFF
+;
+H_Z(Z1), WS( ), NODE(7), WS( ), NODE(2), WS( ), NODE(3), WS( ), MODEL_NAME(ZM1), WS( ), VAL(OFF)
+;
+(circuit (line (z_entry Z1 7 2 3 ZM1 (kv_entry OFF))) eol)

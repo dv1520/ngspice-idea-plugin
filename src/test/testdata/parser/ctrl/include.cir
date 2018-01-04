@@ -1,0 +1,7 @@
+.include 123.cir
+.includeqq
+;
+INCLUDE(.include), WS( ), FILENAME(123.cir), NEWLINE(
+), BC(.includeqq)
+;
+(circuit (line (include_entry .include 123.cir)) (eol \n))

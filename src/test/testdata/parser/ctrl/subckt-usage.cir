@@ -1,0 +1,7 @@
+xabc 1 2 vdiv
+xq 12 vdd a=4 b=4
+;
+H_X(xabc), WS( ), NODE(1), WS( ), NODE(2), WS( ), SUBCKT_NAME(vdiv), NEWLINE(
+), H_X(xq), WS( ), NODE(12), WS( ), SUBCKT_NAME(vdd), WS( ), KV_KEY(a), EQ(=), VAL(4), WS( ), KV_KEY(b), EQ(=), VAL(4)
+;
+(circuit (line (x_entry xabc 1 2 vdiv)) (eol \n) (line (x_entry xq 12 vdd (kvpair a = 4) (kvpair b = 4))) eol)

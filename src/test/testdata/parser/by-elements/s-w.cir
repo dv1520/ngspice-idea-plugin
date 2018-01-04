@@ -1,0 +1,7 @@
+s1 1 2 3 4 smodel1 ON
+w1 1 2 v2 smodel2 OFF
+;
+H_S(s1), WS( ), NODE(1), WS( ), NODE(2), WS( ), NODE(3), WS( ), NODE(4), WS( ), MODEL_NAME(smodel1), WS( ), VAL(ON), NEWLINE(
+), H_W(w1), WS( ), NODE(1), WS( ), NODE(2), WS( ), H_V(v2), WS( ), MODEL_NAME(smodel2), WS( ), VAL(OFF)
+;
+(circuit (line (s_entry s1 1 2 3 4 smodel1 ON)) (eol \n) (line (w_entry w1 1 2 v2 smodel2 OFF)) eol)

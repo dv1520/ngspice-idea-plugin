@@ -1,0 +1,5 @@
+DCLMP 3 7 DMOD AREA= 3.0 IC = 0.2
+;
+H_D(DCLMP), WS( ), NODE(3), WS( ), NODE(7), WS( ), MODEL_NAME(DMOD), WS( ), KV_KEY(AREA), EQ(=), WS( ), VAL(3.0), WS( ), KV_KEY(IC), WS( ), EQ(=), WS( ), VAL(0.2)
+;
+(circuit (line (d_entry DCLMP 3 7 DMOD (kv_entry (kvpair AREA = 3.0)) (kv_entry (kvpair IC = 0.2)))) eol)

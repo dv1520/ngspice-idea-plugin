@@ -1,0 +1,9 @@
+head
+.subckt aba 1 2
+    q11 1 2 3 a19
+.ends aba
+.subckt abc 1 2
+    q11 1 2 3 a19
+.ends abc
+
+x123 1 2 ab<caret>

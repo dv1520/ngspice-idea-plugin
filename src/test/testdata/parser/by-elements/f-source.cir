@@ -1,0 +1,7 @@
+FNONLIN 100 101 POLY ( 2 ) V1 V2 0.0 13.6 0.2 0.005
+FSMPL n1 n2 V3 99
+;
+H_F(FNONLIN), WS( ), NODE(100), WS( ), NODE(101), WS( ), POLY(POLY), WS( ), WS((), WS( ), VAL(2), WS( ), WS()), WS( ), H_V(V1), WS( ), VAL(V2), WS( ), VAL(0.0), WS( ), VAL(13.6), WS( ), VAL(0.2), WS( ), VAL(0.005), NEWLINE(
+), H_F(FSMPL), WS( ), NODE(n1), WS( ), NODE(n2), WS( ), H_V(V3), WS( ), VAL(99)
+;
+(circuit (line (f_entry FNONLIN 100 101 (f_poly POLY 2 V1 V2 0.0 13.6 0.2 0.005))) (eol \n) (line (f_entry FSMPL n1 n2 (f_simple V3 99))) eol)

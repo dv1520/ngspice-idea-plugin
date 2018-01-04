@@ -1,0 +1,7 @@
+ENONLIN 100 101 POLY ( 2 ) 3 0 4 0 0.0 13.6 0.2 0.005
+ESMPL n1 n2 NC1 NC2 99
+;
+H_E(ENONLIN), WS( ), NODE(100), WS( ), NODE(101), WS( ), POLY(POLY), WS( ), WS((), WS( ), VAL(2), WS( ), WS()), WS( ), NODE(3), WS( ), NODE(0), WS( ), NODE(4), WS( ), VAL(0), WS( ), VAL(0.0), WS( ), VAL(13.6), WS( ), VAL(0.2), WS( ), VAL(0.005), NEWLINE(
+), H_E(ESMPL), WS( ), NODE(n1), WS( ), NODE(n2), WS( ), NODE(NC1), WS( ), NODE(NC2), WS( ), VAL(99)
+;
+(circuit (line (e_entry ENONLIN 100 101 (e_poly POLY 2 3 0 4 0 0.0 13.6 0.2 0.005))) (eol \n) (line (e_entry ESMPL n1 n2 (e_simple NC1 NC2 99))) eol)

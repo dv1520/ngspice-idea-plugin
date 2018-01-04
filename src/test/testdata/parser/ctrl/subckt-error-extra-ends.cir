@@ -1,0 +1,11 @@
+.subckt vdiv 1 2 3
+r1 1 2 2k
+.ends vdiv
+.ends qq
+;
+H_SUBCKT(.subckt), WS( ), SUBCKT_NAME(vdiv), WS( ), NODE(1), WS( ), NODE(2), WS( ), NODE(3), NEWLINE(
+), H_R(r1), WS( ), NODE(1), WS( ), NODE(2), WS( ), VAL(2k), NEWLINE(
+), H_SUBCKT_TAIL(.ends), WS( ), SUBCKT_NAME(vdiv), NEWLINE(
+), H_SUBCKT_TAIL(.ends), WS( ), SUBCKT_NAME(qq)
+;
+(circuit (subckt (subckt_head_entry .subckt vdiv 1 2 3) \n (circuit (line (r_entry r1 1 2 (kv_entry 2k))) (eol \n)) (subckt_tail_entry .ends vdiv) (eol \n)) eol)

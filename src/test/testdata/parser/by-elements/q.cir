@@ -1,0 +1,11 @@
+Q23 10 24 13 QMOD IC = 1 , 5
+Q24 1 2 3 QMOD
+Q25 10 24 13 11 QMOD IC = 1 , 5
+Q26 1 2 3 11 QMOD
+;
+H_Q(Q23), WS( ), NODE(10), WS( ), NODE(24), WS( ), NODE(13), WS( ), MODEL_NAME(QMOD), WS( ), KV_KEY(IC), WS( ), EQ(=), WS( ), VAL(1), WS( ), COMMA(,), WS( ), VAL(5), NEWLINE(
+), H_Q(Q24), WS( ), NODE(1), WS( ), NODE(2), WS( ), NODE(3), WS( ), MODEL_NAME(QMOD), NEWLINE(
+), H_Q(Q25), WS( ), NODE(10), WS( ), NODE(24), WS( ), NODE(13), WS( ), NODE(11), WS( ), MODEL_NAME(QMOD), WS( ), KV_KEY(IC), WS( ), EQ(=), WS( ), VAL(1), WS( ), COMMA(,), WS( ), VAL(5), NEWLINE(
+), H_Q(Q26), WS( ), NODE(1), WS( ), NODE(2), WS( ), NODE(3), WS( ), NODE(11), WS( ), MODEL_NAME(QMOD)
+;
+(circuit (line (q_entry Q23 10 24 13 QMOD (kv_entry (kvpair IC = 1 , 5)))) (eol \n) (line (q_entry Q24 1 2 3 QMOD)) (eol \n) (line (q_entry Q25 10 24 13 11 QMOD (kv_entry (kvpair IC = 1 , 5)))) (eol \n) (line (q_entry Q26 1 2 3 11 QMOD)) eol)

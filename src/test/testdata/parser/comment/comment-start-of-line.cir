@@ -1,0 +1,9 @@
+r1 1 2 1k
+*r1 1 2 1k
+ *r1 1 2 1k
+;
+H_R(r1), WS( ), NODE(1), WS( ), NODE(2), WS( ), VAL(1k), NEWLINE(
+), COMMENT(*r1 1 2 1k), NEWLINE(
+), WS( ), BC(*), H_R(r1), WS( ), NODE(1), WS( ), NODE(2), WS( ), VAL(1k)
+;
+(circuit (line (r_entry r1 1 2 (kv_entry 1k))) (eol \n) \n)

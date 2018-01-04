@@ -1,0 +1,5 @@
+J1 7 2 3 JM1 OFF
+;
+H_J(J1), WS( ), NODE(7), WS( ), NODE(2), WS( ), NODE(3), WS( ), MODEL_NAME(JM1), WS( ), VAL(OFF)
+;
+(circuit (line (j_entry J1 7 2 3 JM1 (kv_entry OFF))) eol)

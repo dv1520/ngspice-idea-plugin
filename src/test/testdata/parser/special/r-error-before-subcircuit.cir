@@ -1,0 +1,11 @@
+rq 123
+.subckt vdiv 123 q1 123 p1=1k p2=9n
+r1 123 123 2k
+.ends vdiv
+;
+H_R(rq), WS( ), NODE(123), NEWLINE(
+), H_SUBCKT(.subckt), WS( ), SUBCKT_NAME(vdiv), WS( ), NODE(123), WS( ), NODE(q1), WS( ), NODE(123), WS( ), KV_KEY(p1), EQ(=), VAL(1k), WS( ), KV_KEY(p2), EQ(=), VAL(9n), NEWLINE(
+), H_R(r1), WS( ), NODE(123), WS( ), NODE(123), WS( ), VAL(2k), NEWLINE(
+), H_SUBCKT_TAIL(.ends), WS( ), SUBCKT_NAME(vdiv)
+;
+(circuit (line (r_entry rq 123 <missing NODE>)) (eol \n) (subckt (subckt_head_entry .subckt vdiv 123 q1 123 (kv_entry (kvpair p1 = 1k)) (kv_entry (kvpair p2 = 9n))) \n (circuit (line (r_entry r1 123 123 (kv_entry 2k))) (eol \n)) (subckt_tail_entry .ends vdiv) eol) eol)

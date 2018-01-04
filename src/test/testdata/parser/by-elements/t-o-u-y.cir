@@ -1,0 +1,11 @@
+T1 1 0 2 0 Z0=50 TD=10NS
+O23 1 0 2 0 LOSSYMOD
+U1 1 2 0 URCMOD L=50U
+Y1 1 0 2 0 ymod LEN=2
+;
+H_T(T1), WS( ), NODE(1), WS( ), NODE(0), WS( ), NODE(2), WS( ), NODE(0), WS( ), KV_KEY(Z0), EQ(=), VAL(50), WS( ), KV_KEY(TD), EQ(=), VAL(10NS), NEWLINE(
+), H_O(O23), WS( ), NODE(1), WS( ), NODE(0), WS( ), NODE(2), WS( ), NODE(0), WS( ), MODEL_NAME(LOSSYMOD), NEWLINE(
+), H_U(U1), WS( ), NODE(1), WS( ), NODE(2), WS( ), NODE(0), WS( ), MODEL_NAME(URCMOD), WS( ), KV_KEY(L), EQ(=), VAL(50U), NEWLINE(
+), H_Y(Y1), WS( ), NODE(1), WS( ), NODE(0), WS( ), NODE(2), WS( ), NODE(0), WS( ), MODEL_NAME(ymod), WS( ), KV_KEY(LEN), EQ(=), VAL(2)
+;
+(circuit (line (t_entry T1 1 0 2 0 (kvpair Z0 = 50) (kv_entry (kvpair TD = 10NS)))) (eol \n) (line (o_entry O23 1 0 2 0 LOSSYMOD)) (eol \n) (line (u_entry U1 1 2 0 URCMOD (kvpair L = 50U))) (eol \n) (line (y_entry Y1 1 0 2 0 ymod (kv_entry (kvpair LEN = 2)))) eol)

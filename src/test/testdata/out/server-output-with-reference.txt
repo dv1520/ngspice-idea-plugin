@@ -1,0 +1,46 @@
+/home/z/.IdeaIC2017.1/system/plugins-sandbox/plugins/jetbrains-plugin-sample/ngspice/linux/usr/local/bin/ngspice -s
+
+Circuit: head
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Title: head
+Date: Sat Nov 18 21:33:45  2017
+Plotname: Transient Analysis
+Flags: real
+No. Variables: 4
+No. Points: 0
+Variables:
+No. of Data Columns : 4
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+1                                            0
+2                                            0
+v1#branch                                    0
+
+	0	time	time
+	1	v(1)	voltage
+	2	v(2)	voltage
+	3	i(v1)	current
+Values:
+0		0.000000000000000e+00
+	0.000000000000000e+00
+	0.000000000000000e+00
+	0.000000000000000e+00
+18530		1.851996000000254e-03
+	5.000000000000000e+00
+	2.499999999999999e+00
+	-1.250000000000000e-03
+18531		1.852096000000254e-03
+	5.000000000000000e+00
+	2.499999999999999e+00
+ Reference value :  1.91670e-03	-1.250000000000000e-03
+18532		1.852196000000254e-03
+	5.000000000000000e+00
+	2.499999999999999e+00
+	-1.250000000000000e-03
+18533		1.852296000000254e-03

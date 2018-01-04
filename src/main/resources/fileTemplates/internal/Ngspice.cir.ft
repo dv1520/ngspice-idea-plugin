@@ -1,0 +1,16 @@
+circuit ${NAME}
+
+v1 1 0 5
+r1 1 2 1.2k
+c1 2 0 1e-9
+
+circuit qwe
+
+v1 1 0 5
+r1 1 2 1.2k
+c1 2 0 1e-9
+
+.option filetype=ascii
+
+.tran 1e-7 1e-5 UIC
+.print tran v(1) v(2)

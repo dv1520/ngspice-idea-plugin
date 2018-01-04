@@ -1,0 +1,5 @@
+r1 1 2 2k a=-1 b=-2
+;
+H_R(r1), WS( ), NODE(1), WS( ), NODE(2), WS( ), VAL(2k), WS( ), KV_KEY(a), EQ(=), VAL(-1), WS( ), KV_KEY(b), EQ(=), VAL(-2)
+;
+(circuit (line (r_entry r1 1 2 (kv_entry 2k) (kv_entry (kvpair a = -1)) (kv_entry (kvpair b = -2)))) eol)

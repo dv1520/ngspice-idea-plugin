@@ -1,0 +1,113 @@
+<idea-plugin version="2">
+  <id>org.ngs.adapter.plugin</id>
+  <name>Ngspice netlist plugin</name>
+  <version>0.1</version>
+  <vendor email="dv1520@yandex.ru" url="https://github.com/dv1520/ngspice-idea-plugin">Ngspice Plugin</vendor>
+
+  <description><![CDATA[
+  <p>Ngspice plugin</p>
+
+<p>
+<a href="https://github.com/dv1520/ngspice-idea-plugin">Github source</a>
+  ]]></description>
+
+  <change-notes><![CDATA[
+        ]]>
+  </change-notes>
+
+  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="133"/> <!-- requires 13.x, 14.x, 15.x -->
+
+  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products -->
+  <depends>com.intellij.modules.lang</depends>
+
+  <application-components>
+  </application-components>
+
+  <project-components>
+    <component>
+      <implementation-class>org.ngs.adapter.NgsPluginController</implementation-class>
+    </component>
+  </project-components>
+
+  <actions>
+  </actions>
+
+  <extensions defaultExtensionNs="com.intellij">
+
+    <fileTypeFactory implementation="org.ngs.adapter.NgsFileTypeFactory"/>
+    <lang.syntaxHighlighterFactory key="Ngspice"
+                                   implementationClass="org.ngs.adapter.NgsSyntaxHighlighterFactory"/>
+
+    <lang.parserDefinition language="Ngspice" implementationClass="org.ngs.adapter.NgsParserDefinition"/>
+    <lang.ast.factory language="Ngspice" implementationClass="org.ngs.adapter.NgsASTFactory"/>
+
+
+    <colorSettingsPage implementation="org.ngs.adapter.NgsColorSettingsPage"/>
+
+    <externalAnnotator language="Ngspice" implementationClass="org.ngs.adapter.NgsExternalAnnotator"/>
+
+    <lang.refactoringSupport language="Ngspice" implementationClass="org.ngs.add.idea.NgsRefactoringSupportProvider" />
+    <!--<renameHandler implementation="com.intellij.refactoring.rename.inplace.VariableInplaceRenameHandler"/>-->
+
+
+    <lang.namesValidator implementationClass="org.ngs.add.idea.NgsNamesValidator" language="Ngspice"/>
+
+    <lang.formatter language="Ngspice" implementationClass="org.ngs.add.idea.fmt.NgsFormattingModelBuilder"/>
+
+
+
+    <enterHandlerDelegate implementation="org.ngs.add.idea.editor.NgsEnterHandler"/>
+    <!--<enterHandlerDelegate implementatiorg.my.idea.editor.NgsEnterHandlerdler"-->
+    <!--&lt;!&ndash;order="before EnterBetweenBracesHandler"&ndash;&gt;-->
+
+
+    <completion.contributor language="Ngspice" implementationClass="org.ngs.add.idea.compl.NgsCompletionContributor"/>
+
+
+    <annotator language="Ngspice" implementationClass="org.ngs.add.idea.annot.NgsSubcktNameAnnotator"/>
+
+
+
+
+
+
+
+
+
+    <programRunner id="ngsRunRunner" implementation="org.ngs.add.run.NgsProgramRunner"/>
+
+    <configurationType implementation="org.ngs.add.run.NgsRunConfigurationType"/>
+
+    <runConfigurationProducer implementation="org.ngs.add.run.NgsRunConfigurationProducer"/>
+
+    <projectConfigurable instance="org.ngs.add.cfg.NgsCompilerConfigurable" id="Ngspice Compiler"
+                         displayName="Ngspice Compiler" parentId="project.propCompiler"/>
+
+
+    <applicationService serviceInterface="org.ngs.add.cfg.NgsConfig"
+                        serviceImplementation="org.ngs.add.cfg.NgsConfig"/>
+
+    <lang.commenter language="Ngspice" implementationClass="org.ngs.adapter.NgsCommenter"/>
+
+    <!-- Live templates -->
+    <liveTemplateContext implementation="org.ngs.add.idea.pi.NgsTemplateContextType$Generic"/>
+    <liveTemplateContext implementation="org.ngs.add.idea.pi.NgsTemplateContextType$Statement"/>
+    <defaultLiveTemplatesProvider implementation="org.ngs.add.idea.lt.NgsTemplateProvider"/>
+
+    <codeInsight.parameterInfo language="Ngspice" implementationClass="org.ngs.add.idea.pi.NgsParameterInfoHandler"/>
+
+
+    <internalFileTemplate name="Ngspice All Items"/>
+    <internalFileTemplate name="Ngspice"/>
+    <!--/>-->
+  </extensions>
+
+
+
+  <!--<extensionPoints>-->
+  <!--<extensionPoint name="customAnnotationChecker" interfaorg.my.idea.annotot.ant"/>-->
+  <!--</extensionPoints>-->
+</idea-plugin>

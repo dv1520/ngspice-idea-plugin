@@ -1,0 +1,7 @@
+rq 123
+r1 1 2 2k
+;
+H_R(rq), WS( ), NODE(123), NEWLINE(
+), H_R(r1), WS( ), NODE(1), WS( ), NODE(2), WS( ), VAL(2k)
+;
+(circuit (line (r_entry rq 123 <missing NODE>)) (eol \n) (line (r_entry r1 1 2 (kv_entry 2k))) eol)

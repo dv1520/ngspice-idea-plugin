@@ -1,0 +1,5 @@
+k123 l1 l2 0.99
+;
+H_K(k123), WS( ), H_L(l1), WS( ), H_L(l2), WS( ), VAL(0.99)
+;
+(circuit (line (k_entry k123 l1 l2 (kv_entry 0.99))) eol)

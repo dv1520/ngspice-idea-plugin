@@ -1,0 +1,5 @@
+v1 1 2 PULSE(1 2 3 4 5 6 7)
+;
+H_V(v1), WS( ), NODE(1), WS( ), NODE(2), WS( ), VAL(PULSE), PAR_L((), VAL(1), WS( ), VAL(2), WS( ), VAL(3), WS( ), VAL(4), WS( ), VAL(5), WS( ), VAL(6), WS( ), VAL(7), PAR_R())
+;
+(circuit (line (v_entry v1 1 2 (v_val PULSE))) eol)

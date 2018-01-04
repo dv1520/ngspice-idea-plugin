@@ -7,6 +7,7 @@ import org.antlr.v4.runtime.IntStream;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Token;
 import org.jetbrains.annotations.Nullable;
+import org.ngs.parser.NgsLexer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -185,6 +186,12 @@ public class ANTLRLexerAdaptor extends com.intellij.lexer.LexerBase {
 			return null;
 		}
 
+		// todo: what is this token?
+
+		if (antlrTokenType >= tokenElementTypes.size()) {
+			return null;
+		}
+
 		return tokenElementTypes.get(antlrTokenType);
 	}
 
@@ -252,7 +259,10 @@ public class ANTLRLexerAdaptor extends com.intellij.lexer.LexerBase {
 	 * the lexer at the beginning of an input.
 	 */
 	protected ANTLRLexerState getInitialState() {
-		return new ANTLRLexerState(Lexer.DEFAULT_MODE, null);
+		// todo: do not change library class
+		return new ANTLRLexerState(NgsLexer.M_FIRSTLINE, null);
+//		return new ANTLRLexerState(NgspiceLexer.M_DEFAULT, null);
+//		return new ANTLRLexerState(Lexer.DEFAULT_MODE, null);
 	}
 
 	/**

@@ -1,0 +1,7 @@
+.model MOD1 npn
+.model MOD1 npn (bf=50 vbf=50)
+;
+H_MODEL(.model), WS( ), MODEL_NAME(MOD1), WS( ), VAL(npn), NEWLINE(
+), H_MODEL(.model), WS( ), MODEL_NAME(MOD1), WS( ), VAL(npn), WS( ), PAR_L((), KV_KEY(bf), EQ(=), VAL(50), WS( ), KV_KEY(vbf), EQ(=), VAL(50), PAR_R())
+;
+(circuit (line (model_entry .model MOD1 npn)) (eol \n) (line (model_entry .model MOD1 npn ( (kvpair bf = 50) (kvpair vbf = 50) ))) eol)

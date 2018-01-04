@@ -1,0 +1,7 @@
+head
+v1 11 12 5
+r1 13 14 1k
+r2 10 1 1k
+.subckt aba 18 19
+    r1 15 1<caret> 1k
+.ends aba

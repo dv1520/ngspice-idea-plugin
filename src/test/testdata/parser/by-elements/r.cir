@@ -1,0 +1,7 @@
+r1 1 2 22k
+r2 1 2 55k
+;
+H_R(r1), WS( ), NODE(1), WS( ), NODE(2), WS( ), VAL(22k), NEWLINE(
+), H_R(r2), WS( ), NODE(1), WS( ), NODE(2), WS( ), VAL(55k)
+;
+(circuit (line (r_entry r1 1 2 (kv_entry 22k))) (eol \n) (line (r_entry r2 1 2 (kv_entry 55k))) eol)

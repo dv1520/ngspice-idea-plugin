@@ -1,0 +1,5 @@
+RMOD 2 0 a2k
+;
+H_R(RMOD), WS( ), NODE(2), WS( ), NODE(0), WS( ), MODEL_NAME(a2k)
+;
+(circuit (line (r_entry RMOD 2 0 a2k)) eol)

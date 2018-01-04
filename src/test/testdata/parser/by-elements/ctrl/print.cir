@@ -1,0 +1,5 @@
+.print tran v (17 , 5) (2 , 5) i ( vin ) v (17) (1 , 9)
+;
+PRINT(.print), WS( ), PLOT_TYPE(tran), WS( ), PLOT_POINT_TYPE(v), WS( ), PAR_L((), NODE(17), WS( ), COMMA(,), WS( ), NODE(5), PAR_R()), WS( ), PAR_L((), NODE(2), WS( ), COMMA(,), WS( ), NODE(5), PAR_R()), WS( ), PLOT_POINT_TYPE(i), WS( ), PAR_L((), WS( ), H_V(vin), WS( ), PAR_R()), WS( ), PLOT_POINT_TYPE(v), WS( ), PAR_L((), NODE(17), PAR_R()), WS( ), PAR_L((), NODE(1), WS( ), COMMA(,), WS( ), NODE(9), PAR_R())
+;
+(circuit (line (print_entry .print tran (print_node (print_node_v v ( 17 , 5 ))) (print_node (print_node_v ( 2 , 5 ))) (print_node (print_node_i i ( vin ))) (print_node (print_node_v v ( 17 ))) (print_node (print_node_v ( 1 , 9 ))))) eol)

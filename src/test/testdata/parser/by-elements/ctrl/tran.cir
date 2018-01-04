@@ -1,0 +1,5 @@
+.tran 1 2
+;
+TRAN(.tran), WS( ), VAL(1), WS( ), VAL(2)
+;
+(circuit (line (tran_entry .tran 1 2)) eol)

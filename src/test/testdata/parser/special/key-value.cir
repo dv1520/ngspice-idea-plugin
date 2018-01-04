@@ -1,0 +1,5 @@
+r2 c d 540 q=w w  qw  wr =  45 5
+;
+H_R(r2), WS( ), NODE(c), WS( ), NODE(d), WS( ), VAL(540), WS( ), KV_KEY(q), EQ(=), VAL(w), WS( ), VAL(w), WS( ), WS( ), VAL(qw), WS( ), WS( ), KV_KEY(wr), WS( ), EQ(=), WS( ), WS( ), VAL(45), WS( ), VAL(5)
+;
+(circuit (line (r_entry r2 c d (kv_entry 540) (kv_entry (kvpair q = w)) (kv_entry w) (kv_entry qw) (kv_entry (kvpair wr = 45)) (kv_entry 5))) eol)

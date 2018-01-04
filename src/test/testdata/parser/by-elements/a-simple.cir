@@ -1,0 +1,5 @@
+a1 1 2 amp
+;
+H_A(a1), WS( ), NODE(1), WS( ), NODE(2), WS( ), MODEL_NAME(amp)
+;
+(circuit (line (a_entry a1 (a_node (a_val 1 2)) amp)) eol)

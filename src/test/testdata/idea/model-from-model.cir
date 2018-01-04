@@ -1,0 +1,14 @@
+head
+v1 1 0 5
+r1 1 2 1k
+*r2 2 0 2k
+RMOD 2 0 a12
+RMOD2 2 0 a1<caret>
+q123 1 2 3 a13
+.subckt aba
+    q11 1 2 3 a19
+.ends aba
+
+.model a15 R
+.model a15 R
+.model a14 R

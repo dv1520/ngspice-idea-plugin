@@ -1,0 +1,193 @@
+<templateSet group="ngspice">
+    <template name="ngsr" value="r$NAME$ $N1$ $N2$ $VAL$" description="Resistor" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;1&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;2&quot;" alwaysStopAt="true" />
+        <variable name="VAL" expression="" defaultValue="&quot;1k&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngsc" value="c$NAME$ $N1$ $N2$ $VAL$" description="Capacitor" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;n+&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;n-&quot;" alwaysStopAt="true" />
+        <variable name="VAL" expression="" defaultValue="&quot;1e-9&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngsl" value="l$NAME$ $N1$ $N2$ $VAL$" description="Inductor" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;n+&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;n-&quot;" alwaysStopAt="true" />
+        <variable name="VAL" expression="" defaultValue="&quot;1u&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngsk" value="k$NAME$ $L1$ $L2$ $VAL$" description="Coupled inductor" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="L1" expression="" defaultValue="&quot;L1&quot;" alwaysStopAt="true" />
+        <variable name="L2" expression="" defaultValue="&quot;L2&quot;" alwaysStopAt="true" />
+        <variable name="VAL" expression="" defaultValue="&quot;0.85&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngss" value="s$NAME$ $N1$ $N2$ $CN1$ $CN2$ $MODEL$" description="Switch voltage-controlled" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;n+&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;n-&quot;" alwaysStopAt="true" />
+        <variable name="CN1" expression="" defaultValue="&quot;nc+&quot;" alwaysStopAt="true" />
+        <variable name="CN2" expression="" defaultValue="&quot;nc-&quot;" alwaysStopAt="true" />
+        <variable name="MODEL" expression="" defaultValue="&quot;switch1&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngsw" value="w$NAME$ $N1$ $N2$ $VNAM$ $MODEL$" description="Switch current-controlled" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;n+&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;n-&quot;" alwaysStopAt="true" />
+        <variable name="VNAM" expression="" defaultValue="&quot;v1&quot;" alwaysStopAt="true" />
+        <variable name="MODEL" expression="" defaultValue="&quot;switch2&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngsv" value="v$NAME$ $N1$ $N2$ $VAL$" description="Voltage source" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;n+&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;n-&quot;" alwaysStopAt="true" />
+        <variable name="VAL" expression="" defaultValue="&quot;5&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngsi" value="i$NAME$ $N1$ $N2$ $VAL$" description="Current source" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;n+&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;n-&quot;" alwaysStopAt="true" />
+        <variable name="VAL" expression="" defaultValue="&quot;5e-4&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngst" value="t$NAME$ $N1$ $N2$ $N3$ $N4$ z0=$VAL$" description="Transmission Line Lossless" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;p1.1&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;p1.2&quot;" alwaysStopAt="true" />
+        <variable name="N3" expression="" defaultValue="&quot;p2.1&quot;" alwaysStopAt="true" />
+        <variable name="N4" expression="" defaultValue="&quot;p2.2&quot;" alwaysStopAt="true" />
+        <variable name="VAL" expression="" defaultValue="&quot;50&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngso" value="t$NAME$ $N1$ $N2$ $N3$ $N4$ $MODEL$" description="Transmission Line Lossy" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;p1.1&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;p1.2&quot;" alwaysStopAt="true" />
+        <variable name="N3" expression="" defaultValue="&quot;p2.1&quot;" alwaysStopAt="true" />
+        <variable name="N4" expression="" defaultValue="&quot;p2.2&quot;" alwaysStopAt="true" />
+        <variable name="MODEL" expression="" defaultValue="&quot;lossymod&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngsu" value="u$NAME$ $N1$ $N2$ $N3$ $MODEL$ l=$VAL$" description="Transmission Line Uniform Distributed RC" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;n1&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;n2&quot;" alwaysStopAt="true" />
+        <variable name="N3" expression="" defaultValue="&quot;ncap&quot;" alwaysStopAt="true" />
+        <variable name="MODEL" expression="" defaultValue="&quot;umodel&quot;" alwaysStopAt="true" />
+        <variable name="VAL" expression="" defaultValue="&quot;50u&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngsy" value="u$NAME$ $N1$ 0 $N2$ 0 $MODEL$" description="Transmission Line Single Lossy" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;n1&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;n2&quot;" alwaysStopAt="true" />
+        <variable name="MODEL" expression="" defaultValue="&quot;umodel&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngsp" value="p$NAME$ $N1$ $N2$ $GND1$ $N3$ $N4$ $GND2$ $MODEL$" description="Transmission Line Coupled Multiconductor" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;p1.1&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;p1.2&quot;" alwaysStopAt="true" />
+        <variable name="GND1" expression="" defaultValue="&quot;gnd1&quot;" alwaysStopAt="true" />
+        <variable name="N3" expression="" defaultValue="&quot;p2.1&quot;" alwaysStopAt="true" />
+        <variable name="N4" expression="" defaultValue="&quot;p2.2&quot;" alwaysStopAt="true" />
+        <variable name="GND2" expression="" defaultValue="&quot;gnd2&quot;" alwaysStopAt="true" />
+        <variable name="MODEL" expression="" defaultValue="&quot;plin3&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngsd" value="d$NAME$ $N1$ $N2$ $MODEL$" description="Diode" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;n+&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;n-&quot;" alwaysStopAt="true" />
+        <variable name="MODEL" expression="" defaultValue="&quot;diode1&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngsq" value="q$NAME$ $N1$ $N2$ $N3$ $MODEL$" description="BJT transistor" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;col&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;base&quot;" alwaysStopAt="true" />
+        <variable name="N3" expression="" defaultValue="&quot;emit&quot;" alwaysStopAt="true" />
+        <variable name="MODEL" expression="" defaultValue="&quot;qmod&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngsq4" value="q$NAME$ $N1$ $N2$ $N3$ $N4$ $MODEL$" description="BJT transistor with substrate" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;col&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;base&quot;" alwaysStopAt="true" />
+        <variable name="N3" expression="" defaultValue="&quot;emit&quot;" alwaysStopAt="true" />
+        <variable name="N4" expression="" defaultValue="&quot;substr&quot;" alwaysStopAt="true" />
+        <variable name="MODEL" expression="" defaultValue="&quot;qmod&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngsj" value="j$NAME$ $N1$ $N2$ $N3$ $MODEL$" description="JFET transistor" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;drain&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;gate&quot;" alwaysStopAt="true" />
+        <variable name="N3" expression="" defaultValue="&quot;source&quot;" alwaysStopAt="true" />
+        <variable name="MODEL" expression="" defaultValue="&quot;jmod&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngsz" value="z$NAME$ $N1$ $N2$ $N3$ $MODEL$" description="MESFET transistor" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;drain&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;gate&quot;" alwaysStopAt="true" />
+        <variable name="N3" expression="" defaultValue="&quot;source&quot;" alwaysStopAt="true" />
+        <variable name="MODEL" expression="" defaultValue="&quot;zmod&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+    <template name="ngsm" value="m$NAME$ $N1$ $N2$ $N3$ $N4$ $MODEL$" description="MOSFTET transistor" toReformat="false" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;drain&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;gate&quot;" alwaysStopAt="true" />
+        <variable name="N3" expression="" defaultValue="&quot;source&quot;" alwaysStopAt="true" />
+        <variable name="N4" expression="" defaultValue="&quot;bulk&quot;" alwaysStopAt="true" />
+        <variable name="MODEL" expression="" defaultValue="&quot;mosn&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true"/>
+        </context>
+    </template>
+</templateSet>
