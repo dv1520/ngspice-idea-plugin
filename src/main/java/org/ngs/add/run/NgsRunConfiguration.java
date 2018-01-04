@@ -270,8 +270,11 @@ public class NgsRunConfiguration extends LocatableConfigurationBase {
         String dividerPercentageString = element.getAttributeValue("dividerPercentage");
 
         try {
-            dividerPercentage = Double.parseDouble(dividerPercentageString);
+            if (dividerPercentageString != null) {
+                dividerPercentage = Double.parseDouble(dividerPercentageString);
+            }
         } catch (NumberFormatException e) {
+            // No need to spam the log, we have the default value.
 //            e.printStackTrace();
         }
 

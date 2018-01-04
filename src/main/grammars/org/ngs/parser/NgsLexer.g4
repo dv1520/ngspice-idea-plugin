@@ -593,8 +593,8 @@ private void valInDefaultMode() {
         return;
     }
 
-    if (text.equalsIgnoreCase(".option")) {
-        setType(OPTION);
+    if (text.equalsIgnoreCase(".options")) {
+        setType(OPTIONS);
         mode(M_KV);
         return;
     }
@@ -666,7 +666,7 @@ XA_NODE_TYPE : '%v';
 INCLUDE: '.INCLUDE';
 FILENAME: 'FILENAME';
 
-OPTION: '.OPTION';
+OPTIONS: '.OPTIONS';
 
 PLOT_TYPE: 'TRAN';
 PLOT_POINT_TYPE : 'V';

@@ -1,4 +1,4 @@
-// Generated from /home/src/jetbrains-plugin-sample/src/grammars/org/ngs/parser/NgsParser.g4 by ANTLR 4.7
+// Generated from /home/src/ngspice-idea-plugin/src/main/grammars/org/ngs/parser/NgsParser.g4 by ANTLR 4.7
 package org.ngs.parser;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -88,13 +88,13 @@ public class NgsParserBaseListener implements NgsParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOption_entry(NgsParser.Option_entryContext ctx) { }
+	@Override public void enterOptions_entry(NgsParser.Options_entryContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOption_entry(NgsParser.Option_entryContext ctx) { }
+	@Override public void exitOptions_entry(NgsParser.Options_entryContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -1,4 +1,4 @@
-// Generated from /home/src/jetbrains-plugin-sample/src/grammars/org/ngs/parser/NgsParser.g4 by ANTLR 4.7
+// Generated from /home/src/ngspice-idea-plugin/src/main/grammars/org/ngs/parser/NgsParser.g4 by ANTLR 4.7
 package org.ngs.parser;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -20,7 +20,7 @@ public class NgsParser extends Parser {
 		NODE=1, VAL=2, KV_KEY=3, COMMA=4, HEAD_R=5, WS=6, NEWLINE=7, EQ=8, EXPR=9, 
 		SUBCKT_NAME=10, PAR_L=11, PAR_R=12, BR_L=13, BR_R=14, MODEL_NAME=15, PULSE=16, 
 		SIN=17, EXP=18, PWL=19, SFFM=20, AM=21, TRNOISE=22, TRRANDOM=23, EXTERNAL=24, 
-		POLY=25, COMMENT=26, XA_NODE_TYPE=27, INCLUDE=28, FILENAME=29, OPTION=30, 
+		POLY=25, COMMENT=26, XA_NODE_TYPE=27, INCLUDE=28, FILENAME=29, OPTIONS=30, 
 		PLOT_TYPE=31, PLOT_POINT_TYPE=32, BC=33, COMMENT_FIRSTLINEZ999=34, NL_Z999=35, 
 		BC_Z999=36, COMMENT_LS_Z01=37, COMMENT_EOL_Z01=38, H_MODEL=39, H_R=40, 
 		H_C=41, H_K=42, H_L=43, H_S=44, H_W=45, H_V=46, H_I=47, H_E=48, H_G=49, 
@@ -47,7 +47,7 @@ public class NgsParser extends Parser {
 		BC_Z90=166, WS_Z100=167, NL_Z100=168, FILENAME_Z100=169, BC_Z100=170;
 	public static final int
 		RULE_root = 0, RULE_circuit = 1, RULE_line = 2, RULE_tran_entry = 3, RULE_print_entry = 4, 
-		RULE_include_entry = 5, RULE_option_entry = 6, RULE_print_node = 7, RULE_print_node_v = 8, 
+		RULE_include_entry = 5, RULE_options_entry = 6, RULE_print_node = 7, RULE_print_node_v = 8, 
 		RULE_print_node_i = 9, RULE_d_entry = 10, RULE_q_entry = 11, RULE_j_entry = 12, 
 		RULE_z_entry = 13, RULE_m_entry = 14, RULE_t_entry = 15, RULE_o_entry = 16, 
 		RULE_u_entry = 17, RULE_y_entry = 18, RULE_s_entry = 19, RULE_w_entry = 20, 
@@ -61,7 +61,7 @@ public class NgsParser extends Parser {
 		RULE_a_val_typed_v = 48, RULE_model_entry = 49, RULE_eol = 50, RULE_ffff = 51;
 	public static final String[] ruleNames = {
 		"root", "circuit", "line", "tran_entry", "print_entry", "include_entry", 
-		"option_entry", "print_node", "print_node_v", "print_node_i", "d_entry", 
+		"options_entry", "print_node", "print_node_v", "print_node_i", "d_entry", 
 		"q_entry", "j_entry", "z_entry", "m_entry", "t_entry", "o_entry", "u_entry", 
 		"y_entry", "s_entry", "w_entry", "r_entry", "c_entry", "k_entry", "l_entry", 
 		"i_entry", "v_entry", "v_val", "v_tran", "e_entry", "e_poly", "e_simple", 
@@ -75,13 +75,13 @@ public class NgsParser extends Parser {
 		null, null, null, null, null, null, null, null, null, null, null, null, 
 		null, null, null, null, "'PULSE'", "'SIN'", "'EXP'", "'PWL'", "'SFFM'", 
 		"'AM'", "'TRNOISE'", "'TRRANDOM'", "'EXTERNAL'", "'POLY'", "'COMMENT'", 
-		"'%v'", "'.INCLUDE'", "'FILENAME'", "'.OPTION'", "'TRAN'", "'V'"
+		"'%v'", "'.INCLUDE'", "'FILENAME'", "'.OPTIONS'", "'TRAN'", "'V'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, "NODE", "VAL", "KV_KEY", "COMMA", "HEAD_R", "WS", "NEWLINE", "EQ", 
 		"EXPR", "SUBCKT_NAME", "PAR_L", "PAR_R", "BR_L", "BR_R", "MODEL_NAME", 
 		"PULSE", "SIN", "EXP", "PWL", "SFFM", "AM", "TRNOISE", "TRRANDOM", "EXTERNAL", 
-		"POLY", "COMMENT", "XA_NODE_TYPE", "INCLUDE", "FILENAME", "OPTION", "PLOT_TYPE", 
+		"POLY", "COMMENT", "XA_NODE_TYPE", "INCLUDE", "FILENAME", "OPTIONS", "PLOT_TYPE", 
 		"PLOT_POINT_TYPE", "BC", "COMMENT_FIRSTLINEZ999", "NL_Z999", "BC_Z999", 
 		"COMMENT_LS_Z01", "COMMENT_EOL_Z01", "H_MODEL", "H_R", "H_C", "H_K", "H_L", 
 		"H_S", "H_W", "H_V", "H_I", "H_E", "H_G", "H_F", "H_H", "H_A", "H_T", 
@@ -248,7 +248,7 @@ public class NgsParser extends Parser {
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case INCLUDE:
-				case OPTION:
+				case OPTIONS:
 				case H_MODEL:
 				case H_R:
 				case H_C:
@@ -288,7 +288,7 @@ public class NgsParser extends Parser {
 						}
 						break;
 					case INCLUDE:
-					case OPTION:
+					case OPTIONS:
 					case H_MODEL:
 					case H_R:
 					case H_C:
@@ -341,7 +341,7 @@ public class NgsParser extends Parser {
 				setState(116); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( ((((_la - 7)) & ~0x3f) == 0 && ((1L << (_la - 7)) & ((1L << (NEWLINE - 7)) | (1L << (INCLUDE - 7)) | (1L << (OPTION - 7)) | (1L << (H_MODEL - 7)) | (1L << (H_R - 7)) | (1L << (H_C - 7)) | (1L << (H_K - 7)) | (1L << (H_L - 7)) | (1L << (H_S - 7)) | (1L << (H_W - 7)) | (1L << (H_V - 7)) | (1L << (H_I - 7)) | (1L << (H_E - 7)) | (1L << (H_G - 7)) | (1L << (H_F - 7)) | (1L << (H_H - 7)) | (1L << (H_A - 7)) | (1L << (H_T - 7)) | (1L << (H_O - 7)) | (1L << (H_U - 7)) | (1L << (H_Y - 7)) | (1L << (H_D - 7)) | (1L << (H_Q - 7)) | (1L << (H_J - 7)) | (1L << (H_Z - 7)) | (1L << (H_M - 7)) | (1L << (H_SUBCKT - 7)) | (1L << (H_X - 7)) | (1L << (TRAN - 7)) | (1L << (PRINT - 7)))) != 0) );
+			} while ( ((((_la - 7)) & ~0x3f) == 0 && ((1L << (_la - 7)) & ((1L << (NEWLINE - 7)) | (1L << (INCLUDE - 7)) | (1L << (OPTIONS - 7)) | (1L << (H_MODEL - 7)) | (1L << (H_R - 7)) | (1L << (H_C - 7)) | (1L << (H_K - 7)) | (1L << (H_L - 7)) | (1L << (H_S - 7)) | (1L << (H_W - 7)) | (1L << (H_V - 7)) | (1L << (H_I - 7)) | (1L << (H_E - 7)) | (1L << (H_G - 7)) | (1L << (H_F - 7)) | (1L << (H_H - 7)) | (1L << (H_A - 7)) | (1L << (H_T - 7)) | (1L << (H_O - 7)) | (1L << (H_U - 7)) | (1L << (H_Y - 7)) | (1L << (H_D - 7)) | (1L << (H_Q - 7)) | (1L << (H_J - 7)) | (1L << (H_Z - 7)) | (1L << (H_M - 7)) | (1L << (H_SUBCKT - 7)) | (1L << (H_X - 7)) | (1L << (TRAN - 7)) | (1L << (PRINT - 7)))) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -437,8 +437,8 @@ public class NgsParser extends Parser {
 		public Include_entryContext include_entry() {
 			return getRuleContext(Include_entryContext.class,0);
 		}
-		public Option_entryContext option_entry() {
-			return getRuleContext(Option_entryContext.class,0);
+		public Options_entryContext options_entry() {
+			return getRuleContext(Options_entryContext.class,0);
 		}
 		public LineContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -650,11 +650,11 @@ public class NgsParser extends Parser {
 				include_entry();
 				}
 				break;
-			case OPTION:
+			case OPTIONS:
 				enterOuterAlt(_localctx, 28);
 				{
 				setState(145);
-				option_entry();
+				options_entry();
 				}
 				break;
 			default:
@@ -849,8 +849,8 @@ public class NgsParser extends Parser {
 		return _localctx;
 	}
 
-	public static class Option_entryContext extends ParserRuleContext {
-		public TerminalNode OPTION() { return getToken(NgsParser.OPTION, 0); }
+	public static class Options_entryContext extends ParserRuleContext {
+		public TerminalNode OPTIONS() { return getToken(NgsParser.OPTIONS, 0); }
 		public List<TerminalNode> KV_KEY() { return getTokens(NgsParser.KV_KEY); }
 		public TerminalNode KV_KEY(int i) {
 			return getToken(NgsParser.KV_KEY, i);
@@ -863,29 +863,29 @@ public class NgsParser extends Parser {
 		public TerminalNode VAL(int i) {
 			return getToken(NgsParser.VAL, i);
 		}
-		public Option_entryContext(ParserRuleContext parent, int invokingState) {
+		public Options_entryContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_option_entry; }
+		@Override public int getRuleIndex() { return RULE_options_entry; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof NgsParserListener ) ((NgsParserListener)listener).enterOption_entry(this);
+			if ( listener instanceof NgsParserListener ) ((NgsParserListener)listener).enterOptions_entry(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof NgsParserListener ) ((NgsParserListener)listener).exitOption_entry(this);
+			if ( listener instanceof NgsParserListener ) ((NgsParserListener)listener).exitOptions_entry(this);
 		}
 	}
 
-	public final Option_entryContext option_entry() throws RecognitionException {
-		Option_entryContext _localctx = new Option_entryContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_option_entry);
+	public final Options_entryContext options_entry() throws RecognitionException {
+		Options_entryContext _localctx = new Options_entryContext(_ctx, getState());
+		enterRule(_localctx, 12, RULE_options_entry);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(170);
-			match(OPTION);
+			match(OPTIONS);
 			setState(174); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);

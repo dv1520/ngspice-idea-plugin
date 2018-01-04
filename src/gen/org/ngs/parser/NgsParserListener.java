@@ -1,4 +1,4 @@
-// Generated from /home/src/jetbrains-plugin-sample/src/grammars/org/ngs/parser/NgsParser.g4 by ANTLR 4.7
+// Generated from /home/src/ngspice-idea-plugin/src/main/grammars/org/ngs/parser/NgsParser.g4 by ANTLR 4.7
 package org.ngs.parser;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -68,15 +68,15 @@ public interface NgsParserListener extends ParseTreeListener {
 	 */
 	void exitInclude_entry(NgsParser.Include_entryContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link NgsParser#option_entry}.
+	 * Enter a parse tree produced by {@link NgsParser#options_entry}.
 	 * @param ctx the parse tree
 	 */
-	void enterOption_entry(NgsParser.Option_entryContext ctx);
+	void enterOptions_entry(NgsParser.Options_entryContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link NgsParser#option_entry}.
+	 * Exit a parse tree produced by {@link NgsParser#options_entry}.
 	 * @param ctx the parse tree
 	 */
-	void exitOption_entry(NgsParser.Option_entryContext ctx);
+	void exitOptions_entry(NgsParser.Options_entryContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link NgsParser#print_node}.
 	 * @param ctx the parse tree

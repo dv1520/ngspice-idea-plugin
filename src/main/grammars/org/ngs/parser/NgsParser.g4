@@ -27,14 +27,14 @@ line: r_entry | c_entry | l_entry
 | q_entry | j_entry | z_entry | m_entry
 
 | tran_entry | print_entry
-| include_entry | option_entry
+| include_entry | options_entry
 ;
 
 
 tran_entry: TRAN VAL VAL (VAL VAL?)? VAL?;
 print_entry: PRINT PLOT_TYPE print_node+;
 include_entry: INCLUDE FILENAME;
-option_entry: OPTION (KV_KEY EQ VAL)+;
+options_entry: OPTIONS (KV_KEY EQ VAL)+;
 //           V    (      1 , 2)
 print_node: print_node_i | print_node_v;
 print_node_v: PLOT_POINT_TYPE? PAR_L NODE (COMMA NODE)? PAR_R;
