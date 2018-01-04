@@ -283,7 +283,8 @@ public class NgsRunConfiguration extends LocatableConfigurationBase {
         try {
             visibility = new GsonBuilder().create().fromJson(element.getContent(0).getValue(), Map.class);
         } catch (JsonSyntaxException e) {
-            e.printStackTrace();
+            // We have the default value
+//            e.printStackTrace();
         }
 
         if (visibility == null) {visibility = Maps.newHashMap();}

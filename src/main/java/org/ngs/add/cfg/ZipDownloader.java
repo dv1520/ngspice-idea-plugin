@@ -88,6 +88,10 @@ public class ZipDownloader {
                     break;
                 }
 
+
+                String message = String.format("Downloading %.2fM/%.2fM", (double)bytesDownloaded/1024/1024, (double) contentLength / 1024 / 1024);
+                indicator.setText2(message);
+
                 indicator.setFraction((double) bytesDownloaded / contentLength);
 
                 try {
