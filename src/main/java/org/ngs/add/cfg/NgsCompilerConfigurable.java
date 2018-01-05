@@ -3,6 +3,7 @@ package org.ngs.add.cfg;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SearchableConfigurable;
+import org.apache.commons.lang.SystemUtils;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -15,9 +16,11 @@ import javax.swing.*;
  */
 public class NgsCompilerConfigurable  implements SearchableConfigurable, Configurable.NoScroll  {
 
-    public static final String DEFAULT_BINARY = "ngspice";
-
     public static final String DEFAULT_DOWNLOAD_URL = "https://github.com/dv1520/ngspice-bin/blob/master/bin/ngspice.zip?raw=true";
+
+    public static String getDefaultBinary() {
+        return SystemUtils.IS_OS_WINDOWS ? "ngspice_con" : "ngspice";
+    }
 
     private NgsSettingsForm form = new NgsSettingsForm();
 
@@ -46,7 +49,7 @@ public class NgsCompilerConfigurable  implements SearchableConfigurable, Configu
         if (config != null) {
             originalIsExpert = config.isExpertOptionsEnabled();
             originalBinary = config.getNgsBinaryPath();
-            if (originalBinary == null) {originalBinary = DEFAULT_BINARY;}
+            if (originalBinary == null) {originalBinary = getDefaultBinary();}
             originalDownloadUrl = config.getDownloadUrl();
             if (originalDownloadUrl == null) {
                 originalDownloadUrl = DEFAULT_DOWNLOAD_URL;}

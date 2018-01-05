@@ -1,6 +1,7 @@
 package org.ngs.add.run;
 
 import com.intellij.execution.ExecutionException;
+import com.intellij.execution.configurations.CommandLineState;
 import com.intellij.execution.configurations.RunProfile;
 import com.intellij.execution.configurations.RunProfileState;
 import com.intellij.execution.impl.ExecutionManagerImpl;
@@ -13,24 +14,37 @@ import com.intellij.execution.ui.RunContentDescriptor;
 import com.intellij.execution.ui.RunnerLayoutUi;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.diagnostic.FrequentEventDetector;
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.externalSystem.service.execution.ExternalSystemTaskRunner;
+import com.intellij.openapi.options.ShowSettingsUtil;
+import com.intellij.openapi.project.Project;
+import com.intellij.openapi.ui.MessageType;
+import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.util.Key;
+import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.ui.content.ContentManager;
 import com.intellij.ui.content.ContentManagerAdapter;
 import com.intellij.ui.content.ContentManagerEvent;
 import com.intellij.ui.content.impl.TabbedContentImpl;
+import com.intellij.util.ui.UIUtil;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.ngs.add.util.NgsSettings;
 
 import javax.swing.*;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
+import java.io.IOException;
 import java.util.List;
 
 /**
  * Created by z on 19.08.17.
  */
 public class NgsProgramRunner extends ExternalSystemTaskRunner {
+
+    public static final Logger LOG = Logger.getInstance("org.ngs.add.run.NgsProgramRunner");
 
     private static final String TAB_ID_TABLE = "table";
     private static final String TAB_ID_CONSOLE = "console";
@@ -65,6 +79,21 @@ public class NgsProgramRunner extends ExternalSystemTaskRunner {
     @Nullable
     @Override
     protected RunContentDescriptor doExecute(@NotNull RunProfileState state, @NotNull ExecutionEnvironment env) throws ExecutionException {
+        Project project = env.getProject();
+        try {
+            return doExecuteUnsafe(state, env);
+        } catch (ExecutionException e) {
+            // If it's the error 'No ngspice executable', we add hyperlink
+            // to the error message, otherwise show standard error.
+            if (showErrorWithSettingsWindow(project, state, env, e)) {
+                return null;
+            }
+
+            throw e;
+        }
+    }
+
+    private RunContentDescriptor doExecuteUnsafe(RunProfileState state, ExecutionEnvironment env) throws ExecutionException {
         NgsRunConfiguration cfg = (NgsRunConfiguration) env.getRunProfile();
         cfg.failOnEmptyFilename();
 
@@ -248,6 +277,66 @@ public class NgsProgramRunner extends ExternalSystemTaskRunner {
                     contentManager.setSelectedContent(tableTab);
                 }
             });
+        }
+    }
+
+    private boolean showErrorWithSettingsWindow(Project project, RunProfileState state, ExecutionEnvironment env, ExecutionException exception) {
+        Throwable e2 = exception.getCause();
+        if (e2 == null) {return false;}
+
+        e2 = e2.getCause();
+        if (e2 == null) {return false;}
+        if (!(e2 instanceof IOException)) {return false;}
+        if (!"error=2, No such file or directory".equals(e2.getMessage())) {return false;}
+
+        LOG.error(exception);
+        showError(project, state, env, exception);
+
+        return true;
+    }
+
+    private void showError(final Project project, RunProfileState state, ExecutionEnvironment env, ExecutionException exception) {
+        String toolWindowId = env.getExecutor().getToolWindowId();
+        String filename = ((CommandLineState) state).getEnvironment().getRunProfile().getName();
+
+        filename = StringEscapeUtils.escapeHtml4(filename);
+
+
+        String message = String.format("Error running %s <br>" +
+                "%s<br><br>" +
+                "Perhaps you need to <a href='settings'>configure ngspice</a>",
+                filename, exception.getMessage());
+
+        HyperlinkListener finalListener = new HyperlinkListener() {
+            @Override
+            public void hyperlinkUpdate(HyperlinkEvent e) {
+                onHyperlink(project, e);
+            }
+        };
+
+        showError(project, toolWindowId, message, finalListener);
+    }
+
+    private void onHyperlink(Project project, HyperlinkEvent e) {
+        if (e.getEventType() != HyperlinkEvent.EventType.ACTIVATED) {
+            return;
+        }
+
+        if (!e.getDescription().equals("settings")) {
+            return;
+        }
+
+        ShowSettingsUtil.getInstance().showSettingsDialog(project, "Ngspice Compiler");
+
+    }
+
+    private static void showError(Project project, String toolWindowId, String message, HyperlinkListener listener) {
+        ToolWindowManager toolWindowManager = ToolWindowManager.getInstance(project);
+        if (toolWindowManager.canShowNotification(toolWindowId)) {
+            toolWindowManager.notifyByBalloon(toolWindowId, MessageType.ERROR, message, null, listener);
+        }
+        else {
+            Messages.showErrorDialog(project, UIUtil.toHtml(message), "Error");
         }
     }
 }

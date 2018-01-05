@@ -21,11 +21,11 @@ import com.intellij.openapi.util.InvalidDataException;
 import com.intellij.openapi.util.Key;
 import com.intellij.openapi.util.WriteExternalException;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.SystemUtils;
 import org.jdom.CDATA;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.ngs.add.cfg.NgsCompilerConfigurable;
 import org.ngs.add.cfg.NgsConfig;
 import org.ngs.add.cfg.NgsSettingsForm;
 import org.ngs.add.util.NgsConfigHelper;
@@ -93,10 +93,7 @@ public class NgsRunConfiguration extends LocatableConfigurationBase {
     }
 
     private boolean tryDefaultNgspiceName() {
-        String ngspice = "ngspice";
-        if (SystemUtils.IS_OS_WINDOWS) {
-            ngspice = "ngspice_con";
-        }
+        String ngspice = NgsCompilerConfigurable.getDefaultBinary();
 
         String error = NgsSettingsForm.runBinaryAndGetError(ngspice);
         if (error.isEmpty()) {
