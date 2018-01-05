@@ -105,6 +105,13 @@
     <!--/>-->
   </extensions>
 
+  <actions>
+    <group id="NewNgspiceFileGroup" text="New ngspice file">
+      <action id="NewNgspiceFile" class="org.ngs.add.idea.ftpl.ActionGroupNewNgspiceFile"/>
+      <add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewFromTemplate"/>
+    </group>
+  </actions>
+
 
 
   <!--<extensionPoints>-->

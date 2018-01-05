@@ -1,3 +1,75 @@
-circuit ${NAME}
+circuit ${NAME} Different devices
 
-r1 1 2 2k
+.print tran v(91) v(92)
+.options filetype=ascii
+.tran 1e-7 1e-5 UIC
+
+
+$ 1. Resistor
+v1 11 0 5
+r1 11 12 1.2k
+RMOD 12 0 mod_r
+.model mod_r r r=2000
+
+$ 2. Capacitor
+v2 21 0 5
+r2 21 22 1k
+c1 22 0 1n IC=0
+c2 22 0 mod_c IC=0
+.model mod_c c cap=4n
+
+$ 3. Inductor
+v3 31 0 5
+l1 31 32 10u IC=0
+l2 32 33 mod_l
+r3 33 0 10
+.model mod_l L ind=20u
+
+$ 4. Diode
+
+v4 41 0 5
+r4 41 42 1k
+d1 42 0 mod_diode
+.model mod_diode d
+
+$ 5. Bipolar Junction Transistor (BJT)
+vplus vpos 0 5
+
+v5 51 0 1
+r5 51 base 1k
+r51 vpos col 130
+r52 col 0 13k
+q1 col base 0 mod_npn
+
+.model mod_npn npn
+
+$ 6. Metal Oxide Semiconducttor Field Effect Trensistor (MOSFET)
+v6 61 0 2
+r6 61 gate 1k
+r7 vpos drain 36k
+m1 drain gate 0 0 mod_nmos
+
+.model mod_nmos nmos
+
+$ 7. Sin generator.
+$ v7 61 0 5 SIN ( 0 1 500KHz 1NS 0.1)
+v7 71 0 5 SIN 0 1 500KHz 1NS 0.1
+
+
+
+$ 8. XSPICE amplifier
+v8 81 0 1
+a5 81 82 limit5
+.model limit5 limit(in_offset=0.1 gain=2.5 out_lower_limit=-5.0
++ out_upper_limit=5.0 limit_range=0.10 fraction=FALSE)
+$ + escapes the newline, so it is one long .model entry.
+
+$ 9 .Subcircuit
+
+.subckt r_divider a b c
+    r1 a b 1k
+    r2 b c 1k
+.ends r_divider
+
+v9 91 0 5
+x9 91 92 0 r_divider
