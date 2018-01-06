@@ -279,7 +279,7 @@ public class NgsRunConfiguration extends LocatableConfigurationBase {
         Map<String, Boolean> visibility = null;
         try {
             visibility = new GsonBuilder().create().fromJson(element.getContent(0).getValue(), Map.class);
-        } catch (JsonSyntaxException e) {
+        } catch (IndexOutOfBoundsException | JsonSyntaxException e) {
             // We have the default value
 //            e.printStackTrace();
         }
