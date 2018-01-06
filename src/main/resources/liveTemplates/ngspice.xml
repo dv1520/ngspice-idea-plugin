@@ -46,6 +46,14 @@
             <option name="NGSPICE_STATEMENT" value="true"/>
         </context>
     </template>
+    <template name="ngssubckt" value=".subckt $NAME$ $N1$ $N2$&#10;$END$&#10;.ends $NAME$&#10;" description="Subcircuit" toReformat="true" toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
+        <variable name="N1" expression="" defaultValue="&quot;n1&quot;" alwaysStopAt="true" />
+        <variable name="N2" expression="" defaultValue="&quot;n2&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="NGSPICE_STATEMENT" value="true" />
+        </context>
+    </template>
     <template name="ngsw" value="w$NAME$ $N1$ $N2$ $VNAM$ $MODEL$" description="Switch current-controlled" toReformat="false" toShortenFQNames="true">
         <variable name="NAME" expression="" defaultValue="&quot;name&quot;" alwaysStopAt="true" />
         <variable name="N1" expression="" defaultValue="&quot;n+&quot;" alwaysStopAt="true" />
