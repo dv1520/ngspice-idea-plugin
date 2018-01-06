@@ -28,7 +28,10 @@ line: r_entry | c_entry | l_entry
 
 | tran_entry | print_entry
 | include_entry | options_entry
+| err_entry // todo: remove workaround?
 ;
+
+err_entry: BC+;
 
 
 tran_entry: TRAN VAL VAL (VAL VAL?)? VAL?;

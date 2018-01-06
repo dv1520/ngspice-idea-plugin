@@ -583,7 +583,7 @@ private void valInDefaultMode() {
     String text = getText();
 
     if (text == null) {
-        setType(BC);
+        defaultModeBc();
         return;
     }
 
@@ -599,7 +599,12 @@ private void valInDefaultMode() {
         return;
     }
 
-    setType(BC);
+    defaultModeBc();
+}
+
+private void defaultModeBc() {
+    bc();          // token type
+    mode(M_BC); // rest of line is also BC
 }
 
 private char[] spacesArray = new char[]{'\r', '\n', ' ', '\t'};
@@ -741,7 +746,7 @@ VAL01: F_VAL+  {valInDefaultMode();};
 
 WS_Z01 : F_WS {whitespace();};
 NL_Z01 : F_NL {newline();};
-BC_Z01: . {bc();};
+BC_Z01: . {defaultModeBc();};
 
 mode M_NODE;
 VL: F_VAL+ {node();};
@@ -750,6 +755,10 @@ NL_Z00 : F_NL {newline();};
 COMMENT_EOL_Z00: '$' ~[\r\n]* {comment();};
 
 BC_Z00: . {bc();};
+
+mode M_BC;
+BC_Z05: ~[\n]+ {bc();};
+NL_Z05: F_NL {newline();};
 mode M_KV;
 VAL_Z10 : F_VAL+ {kvVal(VAL);};
 EXPR_Z10: F_EXPR {kvVal(EXPR);};

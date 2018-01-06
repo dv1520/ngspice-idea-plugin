@@ -3,7 +3,6 @@ package org.ngs.add.idea.pi;
 import com.intellij.codeInsight.template.EverywhereContextType;
 import com.intellij.codeInsight.template.TemplateContextType;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiErrorElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiWhiteSpace;
 import com.intellij.psi.util.PsiUtilCore;
@@ -59,22 +58,13 @@ public abstract class NgsTemplateContextType  extends TemplateContextType {
 
         @Override
         protected boolean isInContext(@NotNull PsiElement element) {
-            // If we start typing a new line, it will be PsiErrorElement.
-            // It's strangely arranged, added after circuit
             PsiElement parent = element.getParent();
-            PsiElement elementToCheck = parent;
-            if (parent instanceof PsiErrorElement) {
-                PsiElement grandPa = parent.getParent();
-                // Strange, but valid for subcircuits
-                if (getRuleType(grandPa) == NgsParser.RULE_subckt_tail_entry) {
-                    parent = grandPa;
-                }
+            // 'ngs ngs' <- autocomplete first str only
+            PsiElement prevSibling = element.getPrevSibling();
 
-                elementToCheck = parent.getPrevSibling();
-            }
+            int ruleType = getRuleType(parent);
 
-            int rule = getRuleType(elementToCheck);
-            return rule == NgsParser.RULE_circuit;
+            return ruleType == NgsParser.RULE_err_entry && prevSibling == null;
         }
     }
 }

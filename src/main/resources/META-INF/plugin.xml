@@ -68,7 +68,7 @@
 
 
     <annotator language="Ngspice" implementationClass="org.ngs.add.idea.annot.NgsSubcktNameAnnotator"/>
-
+    <annotator language="Ngspice" implementationClass="org.ngs.add.idea.annot.NgsErrLineAnnotator"/>
 
 
 

@@ -29,27 +29,4 @@ public class NgsFormattingModelBuilder implements FormattingModelBuilder {
     public TextRange getRangeAffectingIndent(PsiFile file, int offset, ASTNode elementAtOffset) {
         return null;
     }
-
-    private int steps = 0;
-
-    private void printBlockTree(NgsBlock block) {
-        steps++;
-
-        printSteps();
-        System.out.println(block.getNode() + ", " + block.getIndent());
-
-        for (Block b: block.buildChildren()) {
-            NgsBlock ngsb = (NgsBlock) b;
-            printBlockTree(ngsb);
-
-        }
-
-
-        steps--;
-    }
-    private void printSteps() {
-        for (int i = 0; i < steps; i++) {
-            System.out.print("  ");
-        }
-    }
 }

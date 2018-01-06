@@ -38,6 +38,16 @@ public interface NgsParserListener extends ParseTreeListener {
 	 */
 	void exitLine(NgsParser.LineContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link NgsParser#err_entry}.
+	 * @param ctx the parse tree
+	 */
+	void enterErr_entry(NgsParser.Err_entryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link NgsParser#err_entry}.
+	 * @param ctx the parse tree
+	 */
+	void exitErr_entry(NgsParser.Err_entryContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link NgsParser#tran_entry}.
 	 * @param ctx the parse tree
 	 */

@@ -28,14 +28,6 @@ public class NgsBlock extends AbstractBlock {
         super(node, wrap, alignment);
     }
 
-    @NotNull
-    @Override
-    public List<Block> getSubBlocks() {
-        List<Block> blocks = super.getSubBlocks();
-
-        return blocks;
-    }
-
     @Override
     protected List<Block> buildChildren() {
         return addChildren(myNode);
@@ -121,10 +113,15 @@ public class NgsBlock extends AbstractBlock {
                 boolean isNotIndentedCircuit = rt == NgsParser.RULE_root;
 
                 if (!isNotIndentedCircuit) {
-                    if (ruleType == NgsParser.RULE_circuit
-                            ) {
-
-                        block.indent = Indent.getNormalIndent();
+                    if (ruleType == NgsParser.RULE_circuit) {
+                        // 1) .subckt sb 1 2
+                        // 2) .ends sb
+                        // If subcircuit body is empty, it will take place on the line(2).
+                        // It will indent line, and .ends will get 4 spaces, and
+                        // we don't want that.
+                        if (!e.getTextRange().isEmpty()) {
+                            block.indent = Indent.getNormalIndent();
+                        }
 
                     }
                 }
@@ -137,6 +134,5 @@ public class NgsBlock extends AbstractBlock {
         }
 
         return blocks;
-
     }
 }

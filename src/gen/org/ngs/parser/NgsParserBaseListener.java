@@ -52,6 +52,18 @@ public class NgsParserBaseListener implements NgsParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterErr_entry(NgsParser.Err_entryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitErr_entry(NgsParser.Err_entryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterTran_entry(NgsParser.Tran_entryContext ctx) { }
 	/**
 	 * {@inheritDoc}
