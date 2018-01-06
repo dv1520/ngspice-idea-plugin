@@ -287,12 +287,27 @@ public class NgsProgramRunner extends ExternalSystemTaskRunner {
         e2 = e2.getCause();
         if (e2 == null) {return false;}
         if (!(e2 instanceof IOException)) {return false;}
-        if (!"error=2, No such file or directory".equals(e2.getMessage())) {return false;}
+        if (!isExceptionMissingBinary(e2)) {return false;}
 
         LOG.error(exception);
         showError(project, state, env, exception);
 
         return true;
+    }
+
+    private boolean isExceptionMissingBinary(Throwable ioException) {
+        String message = ioException.getMessage();
+
+        boolean isLinuxNoBinary =
+                "error=2, No such file or directory".
+                        equals(message);
+        boolean isWindowsNoBinary =
+                "CreateProcess error=2, The system cannot find the file specified".
+                        equals(message);
+
+        boolean isNoBinary = isLinuxNoBinary || isWindowsNoBinary;
+
+        return isNoBinary;
     }
 
     private void showError(final Project project, RunProfileState state, ExecutionEnvironment env, ExecutionException exception) {

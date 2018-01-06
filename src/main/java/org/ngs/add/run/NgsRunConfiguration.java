@@ -125,7 +125,7 @@ public class NgsRunConfiguration extends LocatableConfigurationBase {
 
         if (ngspice == null || ngspice.isEmpty()) {
             if (!tryDefaultNgspiceName()) {
-                throw new RuntimeException("Can't run ngspice");
+                throw new ExecutionException("Can't run ngspice");
             }
 
             ngspice = NgsConfig.getInstance().getNgsBinaryPath();
