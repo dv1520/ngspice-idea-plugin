@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>org.ngs.adapter.plugin</id>
   <name>Ngspice netlist plugin</name>
-  <version>0.1</version>
+  <version>0.001</version>
   <vendor email="dv1520@yandex.ru" url="https://github.com/dv1520/ngspice-idea-plugin">Ngspice Plugin</vendor>
 
   <description><![CDATA[
